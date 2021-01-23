@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,14 +44,14 @@ public class AddEmployeeFragment extends Fragment {
         email = (TextInputLayout) view.findViewById(R.id.emailInputField);
         phone = (TextInputLayout) view.findViewById(R.id.phoneInputField);
 
-        String StrName = name.getEditText().getText().toString();
-        String StrEmail = email.getEditText().getText().toString();
-        String StrPhone = phone.getEditText().getText().toString();
+        //String StrName = name.getEditText().getText().toString();
+        //String StrEmail = email.getEditText().getText().toString();
+        //String StrPhone = phone.getEditText().getText().toString();
 
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Name: " + StrName, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), name.getEditText().getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
         return view;
