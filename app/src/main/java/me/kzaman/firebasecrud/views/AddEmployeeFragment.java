@@ -39,9 +39,9 @@ public class AddEmployeeFragment extends Fragment {
         //save btn
         save_btn = view.findViewById(R.id.save_btn);
 
-        name = view.findViewById(R.id.nameInputField);
-        email = view.findViewById(R.id.emailInputField);
-        phone = view.findViewById(R.id.phoneInputField);
+        name = (TextInputLayout) view.findViewById(R.id.nameInputField);
+        email = (TextInputLayout) view.findViewById(R.id.emailInputField);
+        phone = (TextInputLayout) view.findViewById(R.id.phoneInputField);
 
         String StrName = name.getEditText().getText().toString();
         String StrEmail = email.getEditText().getText().toString();
