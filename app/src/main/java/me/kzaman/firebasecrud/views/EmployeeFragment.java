@@ -27,13 +27,15 @@ import java.util.List;
 import me.kzaman.firebasecrud.Models.Employee;
 import me.kzaman.firebasecrud.R;
 import me.kzaman.firebasecrud.viewModel.EmployeeAdapter;
+import me.kzaman.firebasecrud.viewModel.EmployeeListAdapter;
+
 
 public class EmployeeFragment extends Fragment {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    List<Employee> employeeList;
+    List<String> employeeList;
 
-    EmployeeAdapter employeeAdapter;
+    ArrayAdapter arrayAdapter;
 
     public EmployeeFragment() {
         // Required empty public constructor
@@ -46,36 +48,30 @@ public class EmployeeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_employee, container, false);
 
         employeeList = new ArrayList<>();
-        employeeAdapter = new EmployeeAdapter(employeeList);
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.users_list);
+        arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, employeeList);
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(employeeAdapter);
-
-
+        ListView listView = (ListView) view.findViewById(R.id.users_list);
+        listView.setAdapter(arrayAdapter);
 
         db.collection("employees")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (DocumentChange document : task.getResult().getDocumentChanges()) {
-                                if (document.getType() == DocumentChange.Type.ADDED){
-                                    //Log.d("doc", document.getDocument().getId() + " => " + document.getDocument().getString("name"));
-                                    Employee employees = document.getDocument().toObject(Employee.class);
-                                    employeeList.add(employees);
-                                    employeeAdapter.notifyDataSetChanged();
-                                }
-                            }
-                        } else {
-                            Log.w("doc", "Error getting documents.", task.getException());
+            .get()
+            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            //Log.d("employee", document.getId() + " => " + document.getData());
+                            //Employee employee = document.toObject(Employee.class);
+                            employeeList.add(document.getString("name"));
                         }
                     }
-                });
+                    else {
+                        Log.w("doc", "Error getting documents.", task.getException());
+                    }
+                }
+            });
 
-                return view;
+         return view;
     }
 }
