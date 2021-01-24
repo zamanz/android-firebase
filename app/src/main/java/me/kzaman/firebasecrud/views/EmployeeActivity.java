@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,7 +18,7 @@ import java.util.List;
 
 import me.kzaman.firebasecrud.Models.Employee;
 import me.kzaman.firebasecrud.R;
-import me.kzaman.firebasecrud.viewModel.EmployeeListAdapter;
+import me.kzaman.firebasecrud.Adapter.EmployeeListAdapter;
 
 public class EmployeeActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();

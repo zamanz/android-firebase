@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import me.kzaman.firebasecrud.HomeActivity;
 import me.kzaman.firebasecrud.R;
 
 public class ProfileFragment extends Fragment {
@@ -35,7 +34,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getContext(), HomeActivity.class);
+                Intent intent = new Intent(getContext(), LoginActivity.class);
                 startActivity(intent);
                 getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 Toast.makeText(getContext(), "User Successfully Logged Out", Toast.LENGTH_SHORT).show();

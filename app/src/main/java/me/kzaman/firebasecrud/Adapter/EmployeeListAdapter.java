@@ -1,4 +1,4 @@
-package me.kzaman.firebasecrud.viewModel;
+package me.kzaman.firebasecrud.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
