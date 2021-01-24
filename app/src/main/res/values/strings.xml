@@ -7,4 +7,14 @@
     <string name="phone">Phone</string>
     <string name="save">Save</string>
     <string name="name">Name</string>
+
+    <string name="register">REGISTER</string>
+    <string name="login">Login</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="sign_up_login_hint">Already have an account? Sign In</string>
+    <string name="login_sign_up_hint">Don\'t have an account? Sign Up</string>
+    <string name="login_name_hint">Name</string>
+    <string name="login_mobile_number_hint">Mobile Number</string>
+
 </resources>
