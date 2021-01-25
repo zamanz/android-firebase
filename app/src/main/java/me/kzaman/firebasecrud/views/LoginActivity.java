@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "You Are Already Login", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
             startActivity(intent);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             finish();
         }
     }
@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                             startActivity(intent);
-                            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
                             finish();
                         }
                         else {
