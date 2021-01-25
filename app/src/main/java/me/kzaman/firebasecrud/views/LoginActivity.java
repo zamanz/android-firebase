@@ -24,6 +24,7 @@ import me.kzaman.firebasecrud.R;
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     TextInputLayout emailInput, passwordInput;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_login);
-
+        progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
 
         emailInput = findViewById(R.id.emailInputField);
@@ -64,11 +65,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(String email, String password){
-
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressDialog.dismiss();
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();

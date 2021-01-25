@@ -1,10 +1,12 @@
 package me.kzaman.firebasecrud.views;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,7 @@ import me.kzaman.firebasecrud.R;
 
 public class ProfileFragment extends Fragment {
 
+    ProgressDialog progressDialog;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -29,16 +32,25 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        progressDialog = new ProgressDialog(getContext());
+
         Button logoutBtn = view.findViewById(R.id.logoutBtn);
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getContext(), LoginActivity.class);
-                startActivity(intent);
-                getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                Toast.makeText(getContext(), "User Successfully Logged Out", Toast.LENGTH_SHORT).show();
-                getActivity().finish();
+                try {
+                    progressDialog.setMessage("Loading...");
+                    progressDialog.show();
+                    FirebaseAuth.getInstance().signOut();
+                    Intent intent = new Intent(getContext(), LoginActivity.class);
+                    startActivity(intent);
+                    getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    Toast.makeText(getContext(), "User Successfully Logged Out", Toast.LENGTH_SHORT).show();
+                    getActivity().finish();
+                } catch (Exception e){
+                    Log.d("error", e.getMessage());
+                }
+
             }
         });
         return view;

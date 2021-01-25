@@ -32,10 +32,10 @@ public class DashboardActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.users:
-                        //setFragment(new EmployeeFragment());
-                        Intent intent = new Intent(getApplicationContext(), EmployeeActivity.class);
-                        startActivity(intent);
-                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                        setFragment(new EmployeeFragment());
+//                        Intent intent = new Intent(getApplicationContext(), EmployeeActivity.class);
+//                        startActivity(intent);
+//                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                         break;
 
                 case R.id.add_user:
