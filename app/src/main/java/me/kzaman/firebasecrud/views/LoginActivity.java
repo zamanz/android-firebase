@@ -3,15 +3,18 @@ package me.kzaman.firebasecrud.views;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -20,18 +23,28 @@ import me.kzaman.firebasecrud.R;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    TextInputLayout emailInput, passwordInput;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //hide action bar
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+
+        emailInput = findViewById(R.id.emailInputField);
+        passwordInput = findViewById(R.id.passwordInputField);
 
         Button continue_button = (Button) findViewById(R.id.continue_button);
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login();
+                String email = emailInput.getEditText().getText().toString().trim();
+                String password = passwordInput.getEditText().getText().toString().trim();
+                login(email, password);
             }
         });
     }
@@ -50,8 +63,9 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void login(){
-        mAuth.signInWithEmailAndPassword("admin@directory.com", "123456")
+    public void login(String email, String password){
+
+        mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -66,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                         else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithEmail:failure", task.getException());
+                            Toast.makeText(getApplicationContext(), "signInWithEmail:failure", Toast.LENGTH_LONG).show();
                         }
 
                     }
