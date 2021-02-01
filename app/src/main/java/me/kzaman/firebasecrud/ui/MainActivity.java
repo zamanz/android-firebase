@@ -1,17 +1,12 @@
-package me.kzaman.firebasecrud.views;
+package me.kzaman.firebasecrud.ui;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -28,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_employee, R.id.navigation_add_employee, R.id.navigation_profile, R.id.navigation_notifications)
+                R.id.navigation_employee, R.id.navigation_add_employee, R.id.navigation_dashboard, R.id.navigation_notification)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);

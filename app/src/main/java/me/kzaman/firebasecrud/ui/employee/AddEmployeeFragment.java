@@ -1,4 +1,4 @@
-package me.kzaman.firebasecrud.views;
+package me.kzaman.firebasecrud.ui.employee;
 
 import android.os.Bundle;
 

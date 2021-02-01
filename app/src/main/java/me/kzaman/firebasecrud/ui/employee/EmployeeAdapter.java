@@ -1,4 +1,4 @@
-package me.kzaman.firebasecrud.Adapter;
+package me.kzaman.firebasecrud.ui.employee;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,16 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import me.kzaman.firebasecrud.Models.Employee;
 import me.kzaman.firebasecrud.R;
 
 
 public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHolder> {
 
-    public List<Employee> employeeList;
+    public List<EmployeeModel> employeeModelList;
 
-    public EmployeeAdapter(List<Employee> employeeList) {
-        this.employeeList = employeeList;
+    public EmployeeAdapter(List<EmployeeModel> employeeModelList) {
+        this.employeeModelList = employeeModelList;
     }
 
     @NonNull
@@ -32,13 +31,13 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.name.setText(employeeList.get(position).getName());
-        holder.email.setText(employeeList.get(position).getEmail());
+        holder.name.setText(employeeModelList.get(position).getName());
+        holder.email.setText(employeeModelList.get(position).getEmail());
     }
 
     @Override
     public int getItemCount() {
-        return employeeList.size();
+        return employeeModelList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

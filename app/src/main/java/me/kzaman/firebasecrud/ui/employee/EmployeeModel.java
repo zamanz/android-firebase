@@ -1,9 +1,9 @@
-package me.kzaman.firebasecrud.Models;
+package me.kzaman.firebasecrud.ui.employee;
 
-public class Employee {
+public class EmployeeModel {
     String name, corporate_number, personal_number, bcs_batch, blood_group, facebook, email, division_id, district_id, upazila_id, address, image;
 
-    public Employee(String name, String corporate_number, String personal_number, String bcs_batch, String blood_group, String facebook, String email, String division_id, String district_id, String upazila_id, String address, String image) {
+    public EmployeeModel(String name, String corporate_number, String personal_number, String bcs_batch, String blood_group, String facebook, String email, String division_id, String district_id, String upazila_id, String address, String image) {
         this.name = name;
         this.corporate_number = corporate_number;
         this.personal_number = personal_number;

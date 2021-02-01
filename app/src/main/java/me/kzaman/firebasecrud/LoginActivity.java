@@ -1,4 +1,4 @@
-package me.kzaman.firebasecrud.views;
+package me.kzaman.firebasecrud;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +18,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import me.kzaman.firebasecrud.R;
+import me.kzaman.firebasecrud.ui.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;

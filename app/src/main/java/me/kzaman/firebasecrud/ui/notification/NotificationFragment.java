@@ -1,4 +1,4 @@
-package me.kzaman.firebasecrud.views;
+package me.kzaman.firebasecrud.ui.notification;
 
 import android.os.Bundle;
 

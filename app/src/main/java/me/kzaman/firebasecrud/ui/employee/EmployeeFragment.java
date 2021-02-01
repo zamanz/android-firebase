@@ -1,4 +1,4 @@
-package me.kzaman.firebasecrud.views;
+package me.kzaman.firebasecrud.ui.employee;
 
 import android.os.Bundle;
 
@@ -56,7 +56,7 @@ public class EmployeeFragment extends Fragment {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             //Log.d("employee", document.getId() + " => " + document.getData());
-                            //Employee employee = document.toObject(Employee.class);
+                            //EmployeeModel employee = document.toObject(EmployeeModel.class);
                             employeeList.add(document.getString("name"));
                         }
                     }
