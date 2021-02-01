@@ -15,13 +15,21 @@
       },
       "oauth_client": [
         {
+          "client_id": "452750114138-3jkaital3is9uphel5tkg5tcjvpobos3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.kzaman.firebasecrud",
+            "certificate_hash": "1152038ebf5f2e705e6d23c6c10f51702616f841"
+          }
+        },
+        {
           "client_id": "452750114138-fvel7uca5h57datku8tfr7ag9q8qme41.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDT5Lz4QgK_rfuVv2UsmlMYzUqtu3iUQwU"
+          "current_key": "AIzaSyAyBRj-cn986R1Vt7xDN_HwY3LaBpstZgw"
         }
       ],
       "services": {
