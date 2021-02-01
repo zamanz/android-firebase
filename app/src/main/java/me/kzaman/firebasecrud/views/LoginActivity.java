@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -57,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         if (user != null) {
             // User is signed in
             Toast.makeText(getApplicationContext(), "You Are Already Login", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             finish();
@@ -75,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
                             finish();

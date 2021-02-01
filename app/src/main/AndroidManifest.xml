@@ -11,8 +11,7 @@
         android:roundIcon="@drawable/ic_launcher_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.FirebaseCrud">
-        <activity android:name=".views.EmployeeActivity" />
-        <activity android:name=".views.DashboardActivity" />
+        <activity android:name=".views.MainActivity" />
         <activity android:name=".views.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
