@@ -40,15 +40,12 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         return employeeModelList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        View view;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView name, email;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            view = itemView;
-
-            name = view.findViewById(R.id.name);
-            email = view.findViewById(R.id.email);
+            name = itemView.findViewById(R.id.name);
+            email = itemView.findViewById(R.id.email);
 
         }
     }
