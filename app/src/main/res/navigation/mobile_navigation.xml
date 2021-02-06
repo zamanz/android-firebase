@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/navigation_employee"
-        android:name="me.kzaman.firebasecrud.ui.employee.EmployeeListFragment"
+        android:name="me.kzaman.firebasecrud.ui.employee_list.EmployeeListFragment"
         android:label="Employee List"
         tools:layout="@layout/fragment_employee_list" >
     </fragment>
 
     <fragment
         android:id="@+id/navigation_add_employee"
-        android:name="me.kzaman.firebasecrud.ui.employee.AddEmployeeFragment"
+        android:name="me.kzaman.firebasecrud.ui.new_employee.NewEmployeeFragment"
         android:label="Add Employee"
-        tools:layout="@layout/fragment_add_employee" >
+        tools:layout="@layout/fragment_new_employee" >
     </fragment>
 
     <fragment

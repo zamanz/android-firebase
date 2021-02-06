@@ -1,4 +1,4 @@
-package me.kzaman.firebasecrud.ui.employee;
+package me.kzaman.firebasecrud.ui.employee_list;
 
 import android.os.Bundle;
 
@@ -44,8 +44,8 @@ public class EmployeeListFragment extends Fragment {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d("employee", document.getId() + " => " + document.getData());
-                        //EmployeeModel employee = document.toObject(EmployeeModel.class);
+                        Log.d("employee_list", document.getId() + " => " + document.getData());
+                        //EmployeeModel employee_list = document.toObject(EmployeeModel.class);
                     }
                 }
                 else {

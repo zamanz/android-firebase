@@ -1,4 +1,4 @@
-package me.kzaman.firebasecrud.ui.employee;
+package me.kzaman.firebasecrud.ui.employee_list;
 
 import android.view.LayoutInflater;
 import android.view.View;

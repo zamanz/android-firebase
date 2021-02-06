@@ -1,4 +1,4 @@
-package me.kzaman.firebasecrud.ui.employee;
+package me.kzaman.firebasecrud.ui.employee_list;
 
 public class EmployeeModel {
     String name, corporate_number, personal_number, bcs_batch, blood_group, facebook, email, division_id, district_id, upazila_id, address, image;

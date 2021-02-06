@@ -1,11 +1,11 @@
-package me.kzaman.firebasecrud.ui.employee;
+package me.kzaman.firebasecrud.ui.new_employee;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -23,14 +24,15 @@ import java.util.Map;
 
 import me.kzaman.firebasecrud.R;
 
-public class AddEmployeeFragment extends Fragment {
+public class NewEmployeeFragment extends Fragment {
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    CollectionReference employees = firebaseFirestore.collection("employees");
     Button save_btn;
     TextInputLayout name, email, phone;
 
 
-    public AddEmployeeFragment() {
+    public NewEmployeeFragment() {
         // Required empty public constructor
     }
 
@@ -44,7 +46,12 @@ public class AddEmployeeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_add_employee, container, false);
+        return inflater.inflate(R.layout.fragment_new_employee, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         //save btn
         save_btn = view.findViewById(R.id.save_btn);
@@ -67,22 +74,19 @@ public class AddEmployeeFragment extends Fragment {
                 employee.put("corporate_number", phone.getEditText().getText().toString());
 
                 // Add a new document with a generated ID
-                db.collection("employees")
-                    .add(employee)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Toast.makeText(getContext(), "DocumentSnapshot added with ID: " + documentReference.getId(), Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getContext(), "Error adding document" + e, Toast.LENGTH_LONG).show();
-                        }
-                    });
+                employees.add(employee).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Toast.makeText(getContext(), "DocumentSnapshot added with ID: " + documentReference.getId(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getContext(), "Error adding document" + e, Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
-        return view;
     }
 }
