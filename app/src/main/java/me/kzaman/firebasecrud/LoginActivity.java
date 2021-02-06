@@ -18,18 +18,23 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 import me.kzaman.firebasecrud.ui.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
+
     private FirebaseAuth mAuth;
     TextInputLayout emailInput, passwordInput;
     ProgressDialog progressDialog;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //hide action bar
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         setContentView(R.layout.activity_login);
         progressDialog = new ProgressDialog(this);

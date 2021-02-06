@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_employee"
-        android:name="me.kzaman.firebasecrud.ui.employee.EmployeeFragment"
+        android:name="me.kzaman.firebasecrud.ui.employee.EmployeeListFragment"
         android:label="Employee List"
-        tools:layout="@layout/fragment_employee" >
+        tools:layout="@layout/fragment_employee_list" >
     </fragment>
 
     <fragment
