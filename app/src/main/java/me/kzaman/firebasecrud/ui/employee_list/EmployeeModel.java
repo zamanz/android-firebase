@@ -1,9 +1,14 @@
 package me.kzaman.firebasecrud.ui.employee_list;
 
+import com.google.firebase.firestore.DocumentId;
+
 public class EmployeeModel {
+    @DocumentId
+    String id;
     String name, corporate_number, personal_number, bcs_batch, blood_group, facebook, email, division_id, district_id, upazila_id, address, image;
 
-    public EmployeeModel(String name, String corporate_number, String personal_number, String bcs_batch, String blood_group, String facebook, String email, String division_id, String district_id, String upazila_id, String address, String image) {
+    public EmployeeModel(String id, String name, String corporate_number, String personal_number, String bcs_batch, String blood_group, String facebook, String email, String division_id, String district_id, String upazila_id, String address, String image) {
+        this.id = id;
         this.name = name;
         this.corporate_number = corporate_number;
         this.personal_number = personal_number;
@@ -16,6 +21,16 @@ public class EmployeeModel {
         this.upazila_id = upazila_id;
         this.address = address;
         this.image = image;
+    }
+
+    public EmployeeModel() {}
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -37,7 +37,7 @@ public class FirebaseRepository {
     }
 
     public interface OnFirestoreTaskComplete {
-        void employeeListDataAdded(List<EmployeeModel> employeeListModelsList);
+        void employeeListDataAdded(List<EmployeeModel> employeeModels);
         void onError(Exception e);
     }
 }
