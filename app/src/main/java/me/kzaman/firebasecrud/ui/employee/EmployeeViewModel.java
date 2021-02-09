@@ -1,4 +1,4 @@
-package me.kzaman.firebasecrud.ui.employee_list;
+package me.kzaman.firebasecrud.ui.employee;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

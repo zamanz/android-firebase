@@ -10,7 +10,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 
-import me.kzaman.firebasecrud.ui.employee_list.EmployeeModel;
+import me.kzaman.firebasecrud.ui.employee.EmployeeModel;
 
 public class FirebaseRepository {
 
